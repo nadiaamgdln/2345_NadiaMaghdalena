@@ -1,61 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📘 Aplikasi Manajemen Pelaporan Magang
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Nama:** \Nadia Maghdalena
+**NIM:** \2308107010045
 
-## About Laravel
+##  Deskripsi Singkat
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini merupakan sistem manajemen pelaporan magang berbasis web menggunakan Laravel Breeze. Mahasiswa dapat mendaftar magang, mengisi laporan mingguan, serta melihat histori laporan mereka. Aplikasi ini membantu proses pelaporan dan pemantauan magang menjadi lebih mudah, rapi, dan efisien.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##  Penjelasan Kode & Antarmuka
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+###  Autentikasi (Register & Login)
 
-## Learning Laravel
+* **Register:** Mahasiswa mengisi nama, email, NPM, jurusan, dan password.
+* **Login:** Menggunakan NPM dan password.
+* Setelah login berhasil, pengguna akan diarahkan ke halaman dashboard mahasiswa.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+###  Dashboard Mahasiswa
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Menampilkan informasi pribadi dan tabel laporan.
+* Navigasi: Daftar Laporan, Tambah Laporan, Daftar Magang (jika belum), Profil, Logout.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+###  Daftar Magang
 
-## Laravel Sponsors
+* Mahasiswa wajib mengisi form pendaftaran magang setelah register.
+* Form hanya bisa diedit, tidak bisa mengisi ulang.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+###  Laporan Magang
 
-### Premium Partners
+* Tambah laporan per minggu (judul, deskripsi, isi lengkap, tanggal).
+* Lihat detail laporan.
+* Edit dan hapus laporan (dengan modal konfirmasi).
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+###  Profil
 
-## Contributing
+* Menampilkan data akun dari proses registrasi.
+* Bisa edit informasi akun.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+##  Teknologi yang Digunakan
 
-## Code of Conduct
+* **Laravel Breeze** (autentikasi ringan dan siap pakai)
+* **Tailwind CSS** (untuk tampilan antarmuka modern dan responsif)
+* **Blade Components** (seperti `<x-input-label>`, `<x-text-input>`, dll)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+##  Cara Instalasi Aplikasi
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. **Clone Repository**
 
-## License
+   ```bash
+   git clone https://github.com/username/nama-project.git
+   cd nama-project
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. **Install Dependency**
+
+   ```bash
+   composer install
+   npm install && npm run dev
+   ```
+
+3. **Buat File `.env`**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Generate App Key**
+
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Setting Database**
+
+   * Buka file `.env`
+   * Isi konfigurasi database seperti:
+
+     ```
+     DB_DATABASE=magang_db
+     DB_USERNAME=root
+     DB_PASSWORD=
+     ```
+
+6. **Migrasi dan Seed Database**
+
+   ```bash
+   php artisan migrate --seed
+   ```
+
+7. **Jalankan Aplikasi**
+
+   ```bash
+   php artisan serve
+   ```
+
+   Akses di browser: [http://127.0.0.1:8000](http://127.0.0.1:8000)
